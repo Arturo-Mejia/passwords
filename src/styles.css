@@ -1,1 +1,108 @@
-/* You can add global styles to this file, and also import other style files */
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+      
+         .btn-grad {
+            background-image: linear-gradient(to right, #00aeff 0%, #00a2ff  51%, #0cebeb  100%);
+            margin: 10px;
+            padding: 15px 45px;
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 200% auto;
+            color: white;            
+            box-shadow: 0 0 20px #eee;
+            border-radius: 10px;
+            display: block;
+          }
+
+          .btn-grad:hover {
+            background-position: right center; /* change the direction of the change here */
+            color: #fff;
+            text-decoration: none;
+          }
+         
+
+.bg-i
+{
+    background-image: url('/assets/images/bg.jpg'); /* Cambia la ruta según la ubicación de tu imagen */
+    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir todo el div */
+    width: 300px;
+    height: 200px;
+}
+
+body {
+  font-family: var(--font-family);
+}
+
+
+main {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999; /* Asegúrate de que el valor de z-index sea lo suficientemente alto para superponer todos los demás elementos */
+  background-color: rgb(255, 255, 255);
+}
+
+.loader {
+  animation: rotate 1s infinite;
+  height: 50px;
+  width: 50px;
+}
+
+.loader:before,
+.loader:after {
+  border-radius: 50%;
+  content: "";
+  display: block;
+  height: 20px;
+  width: 20px;
+}
+.loader:before {
+  animation: ball1 1s infinite;
+  background-color: #eee;
+  box-shadow: 30px 0 0 #ff3d00;
+  margin-bottom: 10px;
+}
+.loader:after {
+  animation: ball2 1s infinite;
+  background-color: #00aeff;
+  box-shadow: 30px 0 0 #eee;
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg) scale(0.8) }
+  50% { transform: rotate(360deg) scale(1.2) }
+  100% { transform: rotate(720deg) scale(0.8) }
+}
+
+@keyframes ball1 {
+  0% {
+    box-shadow: 30px 0 0 #00a2ff;
+  }
+  50% {
+    box-shadow: 0 0 0 #00c3ff;
+    margin-bottom: 0;
+    transform: translate(15px, 15px);
+  }
+  100% {
+    box-shadow: 30px 0 0 #00b7cf;
+    margin-bottom: 10px;
+  }
+}
+
+@keyframes ball2 {
+  0% {
+    box-shadow: 30px 0 0 #eee;
+  }
+  50% {
+    box-shadow: 0 0 0 #eee;
+    margin-top: -20px;
+    transform: translate(15px, 15px);
+  }
+  100% {
+    box-shadow: 30px 0 0 #eee;
+    margin-top: 0;
+  }
+}

@@ -1,0 +1,35 @@
+<div class="d-flex justify-content-center flex-wrap align-items-center vh-100 w-100 bg-i gap-3"> 
+
+    <div style="width: 90%; max-width: 40rem; height: auto;" class="p-3 rounded-5 shadow-lg" style="background-color: #ffffff;">
+      <div class="d-flex flex-column  justify-content-center">
+        <div class="d-flex justify-content-center">
+          <img src="/assets/images/passwords.gif" style="width: 60%;">
+        </div>
+       
+        <h3 class="mt-0 text-center">PASSWORDS</h3>
+        <p class="text-center">Administre sus contraseñas de forma segura</p> 
+  
+        <input type="text" class="form-control mt-2 p-3 text-center rounded-5" style="background-color: #ffffff; border: rgb(0, 183, 255) solid 1px;" 
+        placeholder="Correo electrónico"  [(ngModel)]="email">
+        <input type="password" class="form-control mt-2 p-3 text-center rounded-5" style="background-color: #ffffff; border: rgb(0, 183, 255) solid 1px;" 
+        placeholder="Contraseña"  [(ngModel)]="pass">
+  
+        <button class="btn-grad border-0 mt-3 rounded-5" (click)="login()">
+          Iniciar sesión
+        </button>
+        <button class="btn btn-link"  >Registrarse</button>
+        <br>
+      </div>   
+    </div>
+  
+  </div>
+  
+  <p-toast [breakpoints]="{'920px': { width: '100%', right: '0', left: '0'}}"></p-toast>
+  <main class="" id="divload" #divload>
+    <div class="d-flex flex-column justify-content-center align-items-center w-100 h-100">
+       
+        <div class="loader"></div>
+  
+       
+    </div>
+  </main>

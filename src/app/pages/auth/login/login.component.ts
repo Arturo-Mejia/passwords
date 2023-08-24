@@ -3,6 +3,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -15,6 +16,10 @@ export class LoginComponent {
   
   email: string = "";
   pass: string = ""; 
+  visible: boolean = false;
+  regemail: string = ""; 
+  regusername: string = "";
+  regpass: string = ""; 
 
   constructor( private http: HttpClient,private router: Router, private messageService: MessageService) {
     setTimeout(() => {
@@ -71,5 +76,8 @@ showError(msg: string) {
   this.messageService.add({ severity: 'error', summary: 'Error', detail: msg });
 }
 
+showDialog() {
+  this.visible = true;
+}
 
 }

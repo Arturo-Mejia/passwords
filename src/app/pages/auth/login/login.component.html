@@ -1,35 +1,66 @@
-<div class="d-flex justify-content-center flex-wrap align-items-center vh-100 w-100 bg-i gap-3"> 
+ <div class="d-flex justify-content-center flex-wrap align-items-center w-100" style="height: auto; min-height: 99.5%;">
+  
+    <div class="bg-white p-3" id="contenedordesktop">
+      <img src="/assets/images/passwords.jpg" style="width: 20rem;">
+      <h3 class="mt-0 text-center">PASSWORDS</h3>
+      <p class="text-center">Administre sus contraseñas de forma segura</p>
+    </div>
+    <div class="p-1 rounded-4" style="background-color: #ffffff; width: 25rem; max-width: 90%;">
 
-    <div style="width: 90%; max-width: 40rem; height: auto;" class="p-3 rounded-5 shadow-lg" style="background-color: #ffffff;">
-      <div class="d-flex flex-column  justify-content-center">
-        <div class="d-flex justify-content-center">
-          <img src="/assets/images/passwords.gif" style="width: 60%;">
+        <div class="d-flex justify-content-center flex-column">
+
+          <div class="bg-white p-3" id="contenedormobile">
+            <h3 class="mt-0 text-center">PASSWORDS</h3>
+            <div class="d-flex justify-content-center">
+              <img src="/assets/images/passwords.jpg" style="width: 15rem;">
+            </div>
+      
+          </div>
+          <h3 class="text-center">Bienvenid@</h3>
+            <input type="email" class="form-control mt-2 p-3 text-center mb-2" style=" background-color: #ffffff; border: rgb(0, 183, 255) solid 1px; border-radius: 100px;"
+            placeholder="Correo electrónico"  [(ngModel)]="email">
+    
+            <p-password [(ngModel)]="pass" [toggleMask]="true" [feedback]="false" [style]="{'width':'100%','background-color': '#ffffff','border': 'rgb(0, 183, 255) solid 1px','border-radius':'100px'}" placeholder="Contraseña"></p-password>
+    
+            <button class="btn-grad border-0 mt-3 rounded-5" (click)="login()">
+              Iniciar sesión
+            </button>
+            <button class="btn btn-link" (click)="showDialog()" >Registrarse</button>
+
         </div>
-       
-        <h3 class="mt-0 text-center">PASSWORDS</h3>
-        <p class="text-center">Administre sus contraseñas de forma segura</p> 
-  
-        <input type="text" class="form-control mt-2 p-3 text-center rounded-5" style="background-color: #ffffff; border: rgb(0, 183, 255) solid 1px;" 
-        placeholder="Correo electrónico"  [(ngModel)]="email">
-        <input type="password" class="form-control mt-2 p-3 text-center rounded-5" style="background-color: #ffffff; border: rgb(0, 183, 255) solid 1px;" 
-        placeholder="Contraseña"  [(ngModel)]="pass">
-  
-        <button class="btn-grad border-0 mt-3 rounded-5" (click)="login()">
-          Iniciar sesión
-        </button>
-        <button class="btn btn-link"  >Registrarse</button>
-        <br>
-      </div>   
     </div>
-  
-  </div>
-  
+
+  </div> 
+
+
   <p-toast [breakpoints]="{'920px': { width: '100%', right: '0', left: '0'}}"></p-toast>
-  <main class="" id="divload" #divload>
+
+  <!-- <main class="" id="divload" #divload>
     <div class="d-flex flex-column justify-content-center align-items-center w-100 h-100">
-       
+
         <div class="loader"></div>
-  
-       
+
     </div>
-  </main>
+  </main> -->
+
+
+  <div class="card flex justify-content-center">
+    <p-dialog header="Registrarse" [(visible)]="visible" [modal]="true" [style]="{ width: '50vw' }" [draggable]="false" [resizable]="false" [breakpoints]="{ '960px': '85vw' }" [style]="{ width: '30vw' }">
+
+
+      <input type="text" class="form-control mt-2 p-3 text-center mb-2" style="background-color: #ffffff; border: rgb(0, 183, 255) solid 1px; border-radius: 100px;"
+      placeholder="Nombre de usuario"  [(ngModel)]="email">
+      <input type="email" class="form-control mt-2 p-3 text-center mb-2" style="background-color: #ffffff; border: rgb(0, 183, 255) solid 1px; border-radius: 100px;"
+      placeholder="Correo electrónico"  [(ngModel)]="email">
+
+      <p-password [(ngModel)]="pass" [toggleMask]="true" [feedback]="false" [style]="{'width':'100%','background-color': '#ffffff','border': 'rgb(0, 183, 255) solid 1px','border-radius':'100px'}"placeholder="Contraseña"></p-password>
+
+
+      <div class="card justify-content-center border-0">
+        <button class="btn-grad border-0 mt-3 rounded-5" (click)="login()" style="max-width: 20rem;">
+          Registrarse
+        </button>
+      </div>
+
+    </p-dialog>
+</div>

@@ -72,6 +72,24 @@ login() {
   );
 }
 
+register()
+{  
+  let datareg = 
+  {
+    email: this.regemail,
+    username: this.regusername,
+    password: this.regpass
+  }   
+  this.http.post<any>('https://amhapi.bsite.net/User/create', datareg).subscribe({
+    next: data => {
+        console.log(data);
+    },
+    error: error => {
+        console.error('There was an error!', error);
+    }
+})
+}
+
 showError(msg: string) {
   this.messageService.add({ severity: 'error', summary: 'Error', detail: msg });
 }

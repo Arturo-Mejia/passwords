@@ -130,7 +130,7 @@ export class MenuComponent implements OnInit {
               ]
           },
           {
-              label: 'Quit',
+              label: 'Cerrar sesión',
               icon: 'pi pi-fw pi-power-off'
           }
       ];

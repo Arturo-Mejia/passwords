@@ -1,5 +1,6 @@
 @import "primeng/resources/themes/lara-light-blue/theme.css";
 @import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
       
          .btn-grad {
             background-image: linear-gradient(to right, #00aeff 0%, #00a2ff  51%, #0cebeb  100%);

@@ -6,7 +6,9 @@ import { PasswordsComponent } from './passwords/passwords.component';
 import { HomeComponent } from './home.component';
 import { ComponentsModule } from './Components/components.module';
 import { MenubarModule } from 'primeng/menubar';
-
+import { PasswordModule } from 'primeng/password';
+import { FormsModule } from '@angular/forms';
+import { DialogModule } from 'primeng/dialog';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,10 @@ import { MenubarModule } from 'primeng/menubar';
     MaterialModule,
     HomeRoutingModule,
     ComponentsModule,
-    MenubarModule
+    MenubarModule,
+    PasswordModule,
+    FormsModule,
+    DialogModule
   ]
 })
 export class HomeModule { }

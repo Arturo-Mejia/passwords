@@ -73,7 +73,25 @@ login() {
 }
 
 register()
-{  
+{ 
+  if(this.regemail == "" || this.regpass =="" || this.regusername =="")
+  {
+    this.showError("Ingrese todos los datos para poder continuar"); 
+    return;
+  }
+  
+  if(!this.validaremail(this.regemail))
+  {
+    this.showError("El correo ingresado no es válido"); 
+    return; 
+  }
+
+  if(this.regpass.length<8)
+  {
+    this.showError("La contraseña debe tener mínimo 8 caracteres"); 
+    return; 
+  }
+  this.mostrarelemento();
   let datareg = 
   {
     email: this.regemail,
@@ -82,10 +100,16 @@ register()
   }   
   this.http.post<any>('https://amhapi.bsite.net/User/create', datareg).subscribe({
     next: data => {
-        console.log(data);
+      this.visible = false;
+        this.showSuccess("Registrado correctamente");
+        this.ocultarElemento();
+        this.regemail = ""; 
+        this.regpass = ""; 
+        this.regusername = "";  
     },
-    error: error => {
-        console.error('There was an error!', error);
+    error: error => { 
+        this.showError("Error al registrar: "+error.error.message);
+        this.ocultarElemento(); 
     }
 })
 }
@@ -94,8 +118,22 @@ showError(msg: string) {
   this.messageService.add({ severity: 'error', summary: 'Error', detail: msg });
 }
 
+showSuccess(msg: string) {
+  this.messageService.add({ severity: 'success', summary: 'Success', detail: msg });
+}
+
 showDialog() {
   this.visible = true;
+}
+
+
+ validaremail(email:string) : boolean
+{
+  const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+  if(emailPattern.test(email))
+  {
+    return true
+  } else{ return false}
 }
 
 }

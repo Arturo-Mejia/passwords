@@ -42,25 +42,7 @@ export class PasswordsComponent {
   }
   ngOnInit() {
 
-    this.idu = localStorage.getItem("iduser"); 
-    
-    const params = new HttpParams()
-    .set('idu', this.idu);
-
-    this.http.get<passwordsdata[]>('https://amhapi.bsite.net/Accounts/getAccounts',{params}).subscribe({
-      next: data => {
-          this.items = data; 
-          if (this.elementoAEsconder) {
-            this.elementoAEsconder.nativeElement.style.display = 'none';
-          }
-      },
-      error: error => {
-          console.error('There was an error!', error); 
-          if (this.elementoAEsconder) {
-            this.elementoAEsconder.nativeElement.style.display = 'none';
-          }
-      }
-  });
+    this.updatelist(); 
 
   }
    
@@ -121,17 +103,12 @@ updateaccount()
     this.elementoAEsconder.nativeElement.style.display = 'unset';
   }
 
-  let data = 
-  {
-    id : this.curentitem?.id,
-    iduser: this.curentitem!.iduser,
-    descripcion: this.upddescripcion,
-    useraccount: this.upduseraccount,
-    pass: this.updpass
-  }
-  debugger
+  this.curentitem!.descripcion = this.upddescripcion; 
+  this.curentitem!.useraccount = this.upduseraccount; 
+  this.curentitem!.pass = this.updpass; 
+  let data = this.curentitem; 
   const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-  this.http.put<any>('https://localhost:7267/Accounts/UpdateAccount',{data},{headers}).subscribe({
+  this.http.put<any>('https://amhapi.bsite.net/Accounts/UpdateAccount',data,{headers}).subscribe({
     next: data => {
         console.log(data);
         this.showSuccess("Datos actualizados correctamente");
@@ -141,7 +118,6 @@ updateaccount()
         }
     },
     error: error => {
-        console.error('There was an error!', error);
         if (this.elementoAEsconder) {
           this.elementoAEsconder.nativeElement.style.display = 'none';
         }
@@ -163,6 +139,8 @@ deleteaccount()
         if (this.elementoAEsconder) {
           this.elementoAEsconder.nativeElement.style.display = 'none';
         }
+        this.visibledelete = false; 
+        this.updatelist(); 
         this.showSuccess("Eliminado correctamente");
     },
     error: error => {
@@ -173,6 +151,64 @@ deleteaccount()
         this.showError("Error al eliminar la cuenta : "+error);
     }
 });
+}
+
+updatelist()
+{
+  this.idu = localStorage.getItem("iduser"); 
+    
+    const params = new HttpParams()
+    .set('idu', this.idu);
+
+    this.http.get<passwordsdata[]>('https://amhapi.bsite.net/Accounts/getAccounts',{params}).subscribe({
+      next: data => {
+          this.items = data; 
+          if (this.elementoAEsconder) {
+            this.elementoAEsconder.nativeElement.style.display = 'none';
+          }
+      },
+      error: error => {
+          if (this.elementoAEsconder) {
+            this.elementoAEsconder.nativeElement.style.display = 'none';
+          }
+          this.items = []; 
+      }
+  });
+}
+
+createaccount()
+{
+  if (this.elementoAEsconder) {
+    this.elementoAEsconder.nativeElement.style.display = 'unset';
+  }
+  let data = 
+  {
+  iduser: localStorage.getItem("iduser"),
+  descripcion: this.regdescripcion,
+  useraccount: this.reguseraccount,
+  pass: this.regpass
+  }
+
+  this.http.post<any>('https://amhapi.bsite.net/Accounts/create',data).subscribe({
+    next: data =>{
+      this.visiblecreate = false; 
+      this.regdescripcion = ""; 
+      this.reguseraccount = ""; 
+      this.regpass = ""; 
+      this.showSuccess("Regitrado correctamente"); 
+      this.updatelist(); 
+      if (this.elementoAEsconder) {
+        this.elementoAEsconder.nativeElement.style.display = 'none';
+      }
+    },
+    error: error =>
+    {
+      this.showError("Error al registrar: "+error)
+      if (this.elementoAEsconder) {
+        this.elementoAEsconder.nativeElement.style.display = 'none';
+      }
+    }
+  });
 }
 
 }

@@ -2,26 +2,29 @@
 @import "primeng/resources/primeng.css";
 @import "primeicons/primeicons.css";
       
-         .btn-grad {
-            background-image: linear-gradient(to right, #00aeff 0%, #00a2ff  51%, #0cebeb  100%);
-            margin: 10px;
-            padding: 15px 45px;
-            text-align: center;
-            text-transform: uppercase;
-            transition: 0.5s;
-            background-size: 200% auto;
-            color: white;            
-            box-shadow: 0 0 20px #eee;
-            border-radius: 10px;
-            display: block;
-          }
-
-          .btn-grad:hover {
-            background-position: right center; /* change the direction of the change here */
-            color: #fff;
-            text-decoration: none;
-          }
          
+         
+         
+.btn-grad {
+  background-image: linear-gradient(to right, #1FA2FF 0%, #12D8FA  51%, #1FA2FF  100%);
+  margin: 10px;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;            
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  display: block;
+}
+
+.btn-grad:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
 
 .bg-i
 {
@@ -184,6 +187,54 @@ body
 }
 
 .btn-grad3:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
+.sbb
+{
+  -webkit-box-shadow: 0px 10px 13px -7px #000000, 0px 0px 34px -7px #00AEFF; 
+box-shadow: 0px 10px 13px -7px #000000, 0px 0px 34px -7px #00AEFF;
+}
+
+
+         
+.btn-grad4 {
+  background-image: linear-gradient(to right, #0cebeb 0%, #20e3b2  51%, #0cebeb  100%);
+  margin: 10px;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;            
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  display: block;
+}
+
+.btn-grad4:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
+.btn-grad5 {
+  background-image: linear-gradient(to right, #29d11a 0%, #1fdf18  51%, #0ceb56  100%);
+  margin: 10px;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;            
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  display: block;
+}
+
+.btn-grad5:hover {
   background-position: right center; /* change the direction of the change here */
   color: #fff;
   text-decoration: none;

@@ -2,6 +2,7 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
 import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { MessageService } from 'primeng/api';
 import { Password } from 'primeng/password';
+import { Router } from '@angular/router';
 
 interface passwordsdata
 {
@@ -37,8 +38,9 @@ export class PasswordsComponent {
   upduseraccount: string ="";
   updpass: string =""; 
 
-  constructor(private http: HttpClient, private messageService: MessageService)
+  constructor(private http: HttpClient, private messageService: MessageService, private router:Router)
   {
+  
   }
   ngOnInit() {
 

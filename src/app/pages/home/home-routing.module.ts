@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { PasswordsComponent } from './passwords/passwords.component';
 import { HomeComponent } from './home.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
  {
@@ -18,6 +19,11 @@ const routes: Routes = [
       {
         path:'passwords',
         component:PasswordsComponent,
+        pathMatch:'full'
+      },
+      {
+        path:'profile',
+        component:ProfileComponent,
         pathMatch:'full'
       }
     ]

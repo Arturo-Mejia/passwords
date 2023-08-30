@@ -9,11 +9,13 @@ import { MenubarModule } from 'primeng/menubar';
 import { PasswordModule } from 'primeng/password';
 import { FormsModule } from '@angular/forms';
 import { DialogModule } from 'primeng/dialog';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
     HomeComponent,
-    PasswordsComponent
+    PasswordsComponent,
+    ProfileComponent
   ],
   imports: [
     CommonModule,

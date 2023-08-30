@@ -12,6 +12,10 @@ export class HomeComponent {
   idu: any ="";
   constructor(private router: Router,  private http: HttpClient)
   { 
+    if(localStorage.getItem("iduser") == null)
+    {
+      this.router.navigate(["/auth"]);
+    }
     this.idu = localStorage.getItem("iduser"); 
     this.getuser();
   }
@@ -29,7 +33,6 @@ export class HomeComponent {
     this.http.get<any>('https://amhapi.bsite.net/User/getUser',{params}).subscribe({
       next: data => {
           this.username = data.username.toUpperCase(); 
-          console.log(data);
       },
       error: error => {
         console.log(error)

@@ -38,6 +38,8 @@ export class PasswordsComponent {
   upduseraccount: string ="";
   updpass: string =""; 
 
+  emptyc: boolean = true; 
+
   constructor(private http: HttpClient, private messageService: MessageService, private router:Router)
   {
   
@@ -112,7 +114,6 @@ updateaccount()
   const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
   this.http.put<any>('https://amhapi.bsite.net/Accounts/UpdateAccount',data,{headers}).subscribe({
     next: data => {
-        console.log(data);
         this.showSuccess("Datos actualizados correctamente");
         this.visibleedit= false; 
         if (this.elementoAEsconder) {
@@ -146,7 +147,6 @@ deleteaccount()
         this.showSuccess("Eliminado correctamente");
     },
     error: error => {
-        console.error('There was an error!', error); 
         if (this.elementoAEsconder) {
           this.elementoAEsconder.nativeElement.style.display = 'none';
         }
@@ -154,7 +154,6 @@ deleteaccount()
     }
 });
 }
-
 updatelist()
 {
   this.idu = localStorage.getItem("iduser"); 
@@ -168,12 +167,14 @@ updatelist()
           if (this.elementoAEsconder) {
             this.elementoAEsconder.nativeElement.style.display = 'none';
           }
+          this.emptyc = false; 
       },
       error: error => {
           if (this.elementoAEsconder) {
             this.elementoAEsconder.nativeElement.style.display = 'none';
           }
           this.items = []; 
+          this.emptyc = true; 
       }
   });
 }

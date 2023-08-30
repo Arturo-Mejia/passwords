@@ -59,7 +59,6 @@ login() {
 
   this.http.post<any>(url,null,{params}).subscribe(
     data => {
-      console.log('Response:', data);
       this.ocultarElemento(); 
       localStorage.setItem("iduser",data.iduser);
       this.router.navigate(["/home"]);

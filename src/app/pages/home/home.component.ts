@@ -35,7 +35,7 @@ export class HomeComponent {
           this.username = data.username.toUpperCase(); 
       },
       error: error => {
-        console.log(error)
+
       }
   });
   }

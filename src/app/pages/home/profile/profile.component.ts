@@ -32,11 +32,10 @@ export class ProfileComponent {
           this.username = data.username
           const fechaStr: any =  data.createdadate;
           const fechaObj: Date = new Date(fechaStr);
-          this.fechacreacion = fechaObj.getDate()+"-"+(fechaObj.getMonth()+1)+"-"+fechaObj.getFullYear(); 
+          this.fechacreacion = fechaObj.getDate()+" de "+this.getmes(fechaObj.getMonth()+1)+" del "+fechaObj.getFullYear(); 
           this.hideloader(); 
       },
       error: error => {
-        console.log(error)
       }
   });
   }
@@ -49,6 +48,7 @@ export class ProfileComponent {
 
     this.http.delete<any>('https://amhapi.bsite.net/User/delete',{params}).subscribe({
       next: data => {
+          localStorage.removeItem("iduser");
           this.showSuccess("Cuenta eliminada correctamente");
           this.hideloader(); 
           setTimeout(() => {
@@ -94,5 +94,24 @@ hidemodaldelete()
 showmodaldelete()
 {
   this.visibledelete = true;
+}
+
+getmes(num:any): string
+{
+  if(num == 1)
+    {
+      return "Enero"; 
+    } else if(num == 2) {return "Febrero";}
+    else if(num == 3) {return "Marzo";}
+    else if(num == 4) {return "Abril";}
+    else if(num == 5) {return "Mayo";}
+    else if(num == 6) {return "Junio";}
+    else if(num == 7) {return "Julio";}
+    else if(num == 8) {return "Agosto";}
+    else if(num == 9) {return "Septiembre";}
+    else if(num == 10) {return "Octubre";}
+    else if(num == 11) {return "Noviembre";}
+    else if(num == 12) {return "Diciembre";}
+    else{ return "";}
 }
 }

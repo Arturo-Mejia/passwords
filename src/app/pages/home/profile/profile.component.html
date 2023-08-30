@@ -1,12 +1,17 @@
-<div class="d-flex justify-content-center flex-column align-items-center" style="margin-top: 90px;">
-<div><img src="assets/images/profile.png" style="width: 100%; max-width: 20rem;"></div>
-<div>{{username}}</div>
-<div>Fecha de creación: {{fechacreacion}}</div>
-<button class="mt-3 btn-grad border-0" (click)="showmodaldelete()">Eliminar mi cuenta</button>
+
+<div class="d-flex flex-column justify-content-center" style="height: 90dvh;" >
+
+  <div class="d-flex justify-content-center flex-column align-items-center" style="margin-top: 90px;">
+    <div><img src="assets/images/profile.png" style="width: 100%; max-width: 20rem;"></div>
+    <div>{{username}}</div>
+    <div class="p-1">Fecha de creación: {{fechacreacion}}</div>
+    <button class="mt-3 btn-grad border-0" (click)="showmodaldelete()">
+      Eliminar mi cuenta</button>
+    </div>
 </div>
 
 <p-toast [breakpoints]="{'920px': {width: '100%', right: '0', left: '0'}}"></p-toast>
-
+    
 <main class="" id="divload" #divload>
     <div class="d-flex flex-column justify-content-center align-items-center w-100 h-100">
 
@@ -22,7 +27,8 @@
     
           <div class="d-flex justify-content-center">
             <div style="width: 100%; max-width: 25rem;">
-             <p>¿Está segur@ que desea eliminar?</p>
+              <p>Al eliminar su cuenta también se eliminará  toda la información de sus contraseñas</p>
+             <p>¿Está segur@ que desea eliminar su cuenta?</p>
             </div>
           </div>
      
